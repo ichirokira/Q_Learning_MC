@@ -59,17 +59,17 @@ class Q_learning:
         # third = third / np.sum(third)
 
 
-        with open("./log/Q_learning2nd/thaydoisonode/result_5_intervals/gamma0.4/regression_data"+str(self.index)+".csv", 'r') as csvfile:
+        with open("./log/Q_learning2nd/thaydoisonode/result_0_intervals/gamma0.4/regression_data"+str(self.index)+".csv", 'r') as csvfile:
             csv_dict = [row for row in csv.DictReader(csvfile)]
             print("[INFO] Length file", len(csv_dict))
             if len(csv_dict) != 0:
 
-                self.reg.read_data(train_filename="./log/Q_learning2nd/thaydoisonode/result_5_intervals/gamma0.4/regression_data"+str(self.index)+".csv", target_filename="./log/Q_learning2nd/thaydoisonode/result_5_intervals/gamma0.4/regression_target_data"+str(self.index)+".csv")
+                self.reg.read_data(train_filename="./log/Q_learning2nd/thaydoisonode/result_0_intervals/gamma0.4/regression_data"+str(self.index)+".csv", target_filename="./log/Q_learning2nd/thaydoisonode/result_0_intervals/gamma0.4/regression_target_data"+str(self.index)+".csv")
                 print("[INFO] Length truth: ", len(self.reg.delta))
                 print("[INFO] Para X", para.X)
         print("[INFO] location", location)
         if para.X != 0:
-            if  ((len(self.reg.delta)-1) % para.X == 0) and len(self.reg.delta) != 1 and location !=para.depot:
+            if((len(self.reg.delta)-1) % para.X == 0) and len(self.reg.delta) != 1 and location !=para.depot:
                 print("[INFO] Update")
                 print("[INFO] StartAT: ", self.reg.startAt)
                 self.W = self.reg.update()
