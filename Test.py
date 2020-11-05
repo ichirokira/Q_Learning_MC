@@ -23,15 +23,15 @@ for index in range(0,1):
         node = Node(location=location, com_ran=com_ran, energy=energy, energy_max=energy_max, id=i,
                 energy_thresh=0.4 * energy, prob=prob)
         list_node.append(node)
-    file_name_target = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.7/regression_target_data" + str(index) + ".csv"
+    file_name_target = "./log/Q_learning2nd/thaydoisonode/result_10_intervals/alpha0.7/regression_target_data" + str(index) + ".csv"
     information_log_t = open(file_name_target, "a+")
     writer_t = csv.DictWriter(information_log_t, fieldnames=["delta"])
     writer_t.writeheader()
-    file_name_data = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.7/regression_data" + str(index) + ".csv"
+    file_name_data = "./log/Q_learning2nd/thaydoisonode/result_10_intervals/alpha0.7/regression_data" + str(index) + ".csv"
     information_log_d = open(file_name_data, "a+")
     writer_d = csv.DictWriter(information_log_d, fieldnames=["E_ele", "M_ele"])
     writer_d.writeheader()
-    file_name_w = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.7/regression_weights" + str(index) + ".csv"
+    file_name_w = "./log/Q_learning2nd/thaydoisonode/result_10_intervals/alpha0.7/regression_weights" + str(index) + ".csv"
     information_log_w = open(file_name_w, "a+")
     writer_w = csv.DictWriter(information_log_w, fieldnames=["Weights"])
     writer_w.writeheader()
