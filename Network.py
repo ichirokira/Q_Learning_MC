@@ -72,8 +72,8 @@ class Network:
         energy_log.close()
 
     def simulate_max_time(self, optimizer, max_time=10000, file_name="log/information_log.csv"):
-        file_name = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.3/information_log" + str(self.index) +".csv"
-        filenametxt = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.3/networkinfor" + str(self.index) +".txt"
+        file_name = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.4/information_log" + str(self.index) +".csv"
+        filenametxt = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.4/networkinfor" + str(self.index) +".txt"
         information_log = open(file_name, "a+")
         writer = csv.DictWriter(information_log, fieldnames=["time", "nb dead", "nb package"])
         writer.writeheader()
