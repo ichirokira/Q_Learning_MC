@@ -23,7 +23,7 @@ class Q_learning:
         print(self.writer_w)
 
 
-    def update(self, network, mc_current_location=None,alpha=0.4, gamma=0.5, q_max_func=q_max_function, reward_func=reward_function):
+    def update(self, network, mc_current_location=None,alpha=0.6, gamma=0.5, q_max_func=q_max_function, reward_func=reward_function):
         if not len(network.mc.list_request):
             return self.action_list[self.state], 0.0, 0.0, 0.0
         first, second =  self.set_reward(reward_func=reward_func, network=network, location=mc_current_location)
@@ -59,12 +59,12 @@ class Q_learning:
         # third = third / np.sum(third)
 
 
-        with open("./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.4/regression_data"+str(self.index)+".csv", 'r') as csvfile:
+        with open("./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.6/regression_data"+str(self.index)+".csv", 'r') as csvfile:
             csv_dict = [row for row in csv.DictReader(csvfile)]
             print("[INFO] Length file", len(csv_dict))
             if len(csv_dict) != 0:
 
-                self.reg.read_data(train_filename="./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.4/regression_data"+str(self.index)+".csv", target_filename="./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.4/regression_target_data"+str(self.index)+".csv")
+                self.reg.read_data(train_filename="./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.6/regression_data"+str(self.index)+".csv", target_filename="./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.6/regression_target_data"+str(self.index)+".csv")
                 print("[INFO] Length truth: ", len(self.reg.delta))
                 print("[INFO] Para X", para.X)
         print("[INFO] location", location)
