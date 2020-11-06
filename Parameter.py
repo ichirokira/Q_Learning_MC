@@ -11,6 +11,8 @@ EFS = 0.00000000001
 EMP = 0.0000000000000013
 prob = 1.0
 E_mc_thresh = 10
-X = 15
+X = 5
+ID_run = 0
+log_dir = "./log/Q_learning2nd/thaydoisonode/result_5_intervals/alpha0.4_"
 
 
