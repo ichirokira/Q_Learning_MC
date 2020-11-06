@@ -7,12 +7,13 @@ from MobileCharger import MobileCharger
 from Q__Learning import Q_learning
 from Inma import Inma
 import csv
+import Parameter as para
 
-for index in range(0,1):
+for index in range(0,5):
     df = pd.read_csv("data/thaydoisonode.csv")
     node_pos = list(literal_eval(df.node_pos[index]))
     list_node = []
-    random.seed(0)
+    random.seed(para.ID_run)
     for i in range(len(node_pos)):
 
         location = node_pos[i]
@@ -23,15 +24,15 @@ for index in range(0,1):
         node = Node(location=location, com_ran=com_ran, energy=energy, energy_max=energy_max, id=i,
                 energy_thresh=0.4 * energy, prob=prob)
         list_node.append(node)
-    file_name_target = "./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.7/regression_target_data" + str(index) + ".csv"
+    file_name_target = para.log_dir + str(para.ID_run)+"/regression_target_data" + str(index) + ".csv"
     information_log_t = open(file_name_target, "a+")
     writer_t = csv.DictWriter(information_log_t, fieldnames=["delta"])
     writer_t.writeheader()
-    file_name_data = "./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.7/regression_data" + str(index) + ".csv"
+    file_name_data = para.log_dir + str(para.ID_run)+"/regression_data" + str(index) + ".csv"
     information_log_d = open(file_name_data, "a+")
     writer_d = csv.DictWriter(information_log_d, fieldnames=["E_ele", "M_ele"])
     writer_d.writeheader()
-    file_name_w = "./log/Q_learning2nd/thaydoisonode/result_15_intervals/alpha0.7/regression_weights" + str(index) + ".csv"
+    file_name_w = para.log_dir + str(para.ID_run)+"/regression_weights" + str(index) + ".csv"
     information_log_w = open(file_name_w, "a+")
     writer_w = csv.DictWriter(information_log_w, fieldnames=["Weights"])
     writer_w.writeheader()
